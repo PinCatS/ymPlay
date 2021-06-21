@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
 import { HomeComponent } from './home/home.component';
+import { MetrikaModule } from './shared/metrika/metrika.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,11 @@ import { HomeComponent } from './home/home.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MetrikaModule.forRoot({
+      id: 81474229,
+      webvisor: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

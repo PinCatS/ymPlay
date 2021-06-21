@@ -13,4 +13,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onHelloClick() {
+    const ym = (window as { [key: string]: any })['ym'];
+    ym(81474229, 'hit', '#hello', {
+      title: 'Hello page',
+      referer: 'https://pincats.github.io/ymPlay/'
+    });
+
+    console.log('[home] onHelloClick');
+  }
 }
