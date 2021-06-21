@@ -18,7 +18,7 @@ import { MetrikaModule } from './shared/metrika/metrika.module';
     BrowserModule,
     AppRoutingModule,
     MetrikaModule.forRoot({
-      id: environment.analytics.yaMetrikaCounterId,
+      id: (environment as {[key: string]: any})['analytics']?.yaMetrikaCounterId,
       webvisor: true,
     }),
   ],

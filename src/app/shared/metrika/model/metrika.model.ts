@@ -1,14 +1,12 @@
-export interface MetrikaHitEvent {
-  url: string,
-  prevUrl: string,
+export interface MetrikaHitOptions {
   title?: string,
   referer?: string,
   callback?: Function,
   callbackCtx?: any,
-  params?: MetrikaHitEventOptionsParams,
+  params?: MetrikaOptionsParams,
 }
 
-export interface MetrikaHitEventOptionsParams {
-  order_price: number,
-  currency: string
+export interface MetrikaOptionsParams {
+  order_price?: number,
+  currency?: string
 }
