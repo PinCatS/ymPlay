@@ -8,7 +8,7 @@ export function countersFactory(config: CounterConfig) {
 }
 
 export function metrikaInitializerFactory(counterConfig: CounterConfig) {
-  if (environment.analytics.useMetrika) {
+  if (environment['analytics']?.useMetrika) {
     return _insertMetrika.bind(null, counterConfig);
   }
 
@@ -24,6 +24,18 @@ function _getWindowRef() {
   return (window as { [key: string]: any });
 }
 
+/**
+ *
+ * Inserts Yandex Metrika script and noscript tags into the head.
+ *
+ * 'yandex_metrika_callbacks2' will be used by Metrika to create counter `yaCounter${id}`
+ * in the window object with appropriate callbacks
+ *
+ * @param counterConfig - Yandex Metrika configuration object
+ * @returns
+ *
+ * @see https://yandex.ru/support/metrica/code/counter-initialize.html
+ */
 function _insertMetrika(counterConfig: CounterConfig): string {
   const name = 'yandex_metrika_callbacks2';
   const windowRef = _getWindowRef();

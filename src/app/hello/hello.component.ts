@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MetrikaService } from '../shared/metrika/metrika.service';
 
 @Component({
   selector: 'app-hello',
@@ -8,14 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelloComponent implements OnInit {
 
-  constructor() { }
+  constructor(private metrikaService: MetrikaService) { }
 
   ngOnInit(): void {
   }
 
   onBackClick() {
-    // const ym = (window as { [key: string]: any })['ym'];
-    // ym(81474229,'reachGoal','"home_target"');
+    this.metrikaService.reportGoalReached('home_target', {}, () => {console.log('HOME_TARGET goal reported')});
   }
 
 }
