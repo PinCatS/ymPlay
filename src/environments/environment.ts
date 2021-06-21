@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  useMetrika: true
+  analytics: {
+    useMetrika: true,
+    yaMetrikaCounterId: 81474229
+  }
 };
 
 /*

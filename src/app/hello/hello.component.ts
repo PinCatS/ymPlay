@@ -14,8 +14,8 @@ export class HelloComponent implements OnInit {
   }
 
   onBackClick() {
-    const ym = (window as { [key: string]: any })['ym'];
-    ym(81474229,'reachGoal','"home_target"');
+    // const ym = (window as { [key: string]: any })['ym'];
+    // ym(81474229,'reachGoal','"home_target"');
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MetrikaService } from '../shared/metrika/metrika.service';
 
 @Component({
   selector: 'app-home',
@@ -8,18 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private metrikaService: MetrikaService) { }
 
   ngOnInit(): void {
   }
 
   onHelloClick() {
-    const ym = (window as { [key: string]: any })['ym'];
-    ym(81474229, 'hit', '#hello', {
+    const counter: {[key: string]: any} = MetrikaService.getCounterById(81474229);
+    counter['hit']('/hello', {
       title: 'Hello page',
-      referer: 'https://pincats.github.io/ymPlay/'
+      referer: '/'
     });
+    // const ym = (window as { [key: string]: any })['ym'];
+    // ym(81474229, 'hit', '#hello', {
+    //   title: 'Hello page',
+    //   referer: 'https://pincats.github.io/ymPlay/'
+    // });
 
-    console.log('[home] onHelloClick');
+    // console.log('[home] onHelloClick');
   }
 }

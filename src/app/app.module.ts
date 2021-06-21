@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +18,7 @@ import { MetrikaModule } from './shared/metrika/metrika.module';
     BrowserModule,
     AppRoutingModule,
     MetrikaModule.forRoot({
-      id: 81474229,
+      id: environment.analytics.yaMetrikaCounterId,
       webvisor: true,
     }),
   ],

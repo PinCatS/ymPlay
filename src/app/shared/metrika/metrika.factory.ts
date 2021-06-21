@@ -8,10 +8,11 @@ export function countersFactory(config: CounterConfig) {
 }
 
 export function metrikaInitializerFactory(counterConfig: CounterConfig) {
-  if (environment.useMetrika) {
+  if (environment.analytics.useMetrika) {
     return _insertMetrika.bind(null, counterConfig);
   }
 
+  console.warn('[metrika factory] metrikaInitializerFactory: metrika is turned off')
   return () => {};
 }
 
@@ -59,5 +60,4 @@ function _insertMetrika(counterConfig: CounterConfig): string {
 function _createCounter(config: CounterConfig) {
   const windowRef = _getWindowRef();
   windowRef[getCounterNameById(config.id)] = new Ya.Metrika2(config);
-  console.log(windowRef[getCounterNameById(config.id)], getCounterNameById(config.id));
 }
